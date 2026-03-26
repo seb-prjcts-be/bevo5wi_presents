@@ -100,7 +100,13 @@ $hiddenStudents = ['Astor_Meire'];
         </main>
 
         <footer class="text-center">
-            <p class="text-center">&copy; <?php echo date('Y'); ?>5BEVOwi Presents - ALL RIGHTS RESERVED</p>
+            <p class="text-center">&copy; <?php echo date('Y'); ?> 5BEVOwi Presents - ALL RIGHTS RESERVED<?php
+                $lastSyncFile = __DIR__ . '/last_sync.json';
+                if (file_exists($lastSyncFile)) {
+                    $ls = json_decode(file_get_contents($lastSyncFile), true);
+                    if ($ls) echo ' &middot; Laatste sync: ' . date('d-m-Y H:i', strtotime($ls['last_sync']));
+                }
+            ?></p>
         </footer>
     </div>
 </body>
