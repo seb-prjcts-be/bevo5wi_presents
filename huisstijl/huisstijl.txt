@@ -1,0 +1,518 @@
+/*
+ * 5BEVO PRESENTS - UNIVERSAL STYLEGUIDE
+ * Version 1.0
+ * Last Updated: 2025-05-12
+ *
+ * This styleguide provides consistent design elements for all 5BEVO projects.
+ * It includes typography, colors, layout guidelines, and component styles.
+ */
+
+/* ==============================
+ * 1. TYPOGRAPHY
+ * ============================== */
+
+/* 1.1 Font Families */
+/* Primary Font: Basel Grotesk (if installed on the system) */
+/* Note: Basel Grotesk is a commercial font that should be installed on the server */
+
+/* Secondary Font: Inter from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Tertiary Font: Univers */
+@font-face {
+  font-family: 'UniversBold';
+  src: url('fonts/UniversBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UniversLight';
+  src: url('fonts/UniversLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UniversReg';
+  src: url('fonts/UniversRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* 1.2 Typography Rules */
+/* Base font settings */
+:root {
+  --font-primary: 'Basel Grotesk', 'Inter', Arial, sans-serif;
+  --font-secondary: 'Inter', Arial, sans-serif;
+  --font-tertiary: 'UniversReg', sans-serif;
+  --font-light: 'Basel Grotesk', 300, 'Inter', 300, Arial, sans-serif;
+  --font-bold: 'Basel Grotesk', 700, 'Inter', 700, Arial, sans-serif;
+  
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-md: 1.25rem;    /* 20px */
+  --font-size-lg: 1.5rem;     /* 24px */
+  --font-size-xl: 2rem;       /* 32px */
+  --font-size-xxl: 3.125rem;  /* 50px */
+  
+  --line-height-tight: 1;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 3px;
+}
+
+/* Typography implementation guidelines */
+/*
+ * - All titles should be in uppercase (text-transform: uppercase)
+ * - Headings use Basel Grotesk with wide letter spacing
+ * - Body text uses Basel Grotesk with normal letter spacing and regular weight (400)
+ * - If Basel Grotesk is not available, Inter will be used as fallback
+ * - Emphasis and important text uses Basel Grotesk Bold (700)
+ * - Inter should be used for UI elements and secondary text
+ * - Univers fonts can be used as tertiary/accent typography
+ */
+
+/* ==============================
+ * 2. COLORS
+ * ============================== */
+
+:root {
+  /* Primary colors */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  
+  /* Secondary colors */
+  --color-gray-light: #F5F5F5;
+  --color-gray-medium: #CCCCCC;
+  --color-gray-dark: #333333;
+  
+  /* Accent colors - can be customized per project */
+  --color-accent: #4a6fa5;
+  --color-accent-light: #6b8cb9;
+  --color-accent-dark: #395580;
+  
+  /* Functional colors */
+  --color-background: var(--color-white);
+  --color-text: var(--color-black);
+  --color-link: var(--color-accent);
+  --color-link-hover: var(--color-accent-dark);
+}
+
+/* Color palette array for dynamic use */
+:root {
+  --color-palette-1: #61B199;
+  --color-palette-2: #C0CE68;
+  --color-palette-3: #F0E933;
+  --color-palette-4: #FBBF2E;
+  --color-palette-5: #F89A3C;
+  --color-palette-6: #F3722E;
+  --color-palette-7: #EF4424;
+  --color-palette-8: #ED1C26;
+  --color-palette-9: #E92B59;
+  --color-palette-10: #E23D96;
+  --color-palette-11: #BF428A;
+  --color-palette-12: #9F4A81;
+  --color-palette-13: #69619B;
+  --color-palette-14: #367BB7;
+  --color-palette-15: #0091D1;
+}
+
+/* JavaScript color array for reference */
+/*
+const colorPalette = [
+  '#61B199',
+  '#C0CE68',
+  '#F0E933',
+  '#FBBF2E',
+  '#F89A3C',
+  '#F3722E',
+  '#EF4424',
+  '#ED1C26',
+  '#E92B59',
+  '#E23D96',
+  '#BF428A',
+  '#9F4A81',
+  '#69619B',
+  '#367BB7',
+  '#0091D1'
+];
+*/
+
+/* ==============================
+ * 3. LAYOUT & SPACING
+ * ============================== */
+
+:root {
+  /* Spacing scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-xxl: 3rem;     /* 48px */
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Base layout settings */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+/* Container for centered content */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Grid system */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-md);
+}
+
+/* ==============================
+ * 4. COMPONENTS
+ * ============================== */
+
+/* 4.1 Page Title */
+.page-title-container {
+  display: inline-block; /* To fit the width of the title text */
+  background-color: var(--color-black);
+  padding: var(--space-sm) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.page-title {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xxl);
+  color: var(--color-white);
+  margin: 0;
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* 4.2 Buttons */
+.button {
+  display: inline-block;
+  font-family: var(--font-bold);
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Ensure button visibility */
+  opacity: 1;
+  visibility: visible;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--color-gray-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.button--accent {
+  background-color: var(--color-accent);
+}
+
+.button--accent:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* IMPORTANT: All buttons must be visible before mouseover */
+a.button, button, .view-button, input[type="button"], input[type="submit"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+/* 4.3 Cards */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.card__title {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+}
+
+/* ==============================
+ * 5. RESPONSIVE DESIGN
+ * ============================== */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  :root {
+    --font-size-xxl: 2.5rem; /* 40px - smaller on mobile */
+  }
+  
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* ==============================
+ * 6. UTILITIES
+ * ============================== */
+
+/* Text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Display */
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-none { display: none; }
+
+/* Spacing utilities */
+.m-0 { margin: 0; }
+.p-0 { padding: 0; }
+
+/* Flexbox utilities */
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+
+/* ==============================
+ * 7. COLOR BLOCKS PATTERN
+ * ============================== */
+
+/* Right-aligned color block pattern for headers and footers */
+.color-blocks {
+  width: 100%;
+  overflow: hidden;
+}
+
+#header-colors {
+  margin-bottom: 20px;
+}
+
+#footer-colors {
+  margin-top: 20px;
+}
+
+/* JavaScript implementation for color blocks */
+/*
+// Color blocks implementation
+function generateColorBlocks(containerId, numBlocks, blockHeight) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  
+  // Clear existing content
+  container.innerHTML = '';
+  
+  // Create a wrapper for right-aligned blocks
+  const wrapper = document.createElement('div');
+  wrapper.style.display = 'flex';
+  wrapper.style.justifyContent = 'flex-end';
+  wrapper.style.width = '100%';
+  container.appendChild(wrapper);
+  
+  // Select 2 random colors from the palette
+  const selectedColors = [];
+  while (selectedColors.length < 2) {
+    const randomIndex = Math.floor(Math.random() * colorPalette.length);
+    const color = colorPalette[randomIndex];
+    if (!selectedColors.includes(color)) {
+      selectedColors.push(color);
+    }
+  }
+  
+  // Create a staggered pattern on the right side
+  // Each row has a different number of blocks to create a jagged edge
+  const rows = 3;
+  const blocksPerRow = Math.ceil(numBlocks / rows);
+  
+  // Create a container for the blocks
+  const blocksContainer = document.createElement('div');
+  blocksContainer.style.display = 'flex';
+  blocksContainer.style.flexDirection = 'column';
+  blocksContainer.style.width = '40%'; // Only take up 40% of the width on the right
+  wrapper.appendChild(blocksContainer);
+  
+  for (let row = 0; row < rows; row++) {
+    const rowDiv = document.createElement('div');
+    rowDiv.style.display = 'flex';
+    rowDiv.style.justifyContent = 'flex-end';
+    rowDiv.style.height = blockHeight + 'px';
+    
+    // Determine how many blocks for this row (staggered effect)
+    const blocksInThisRow = blocksPerRow - row;
+    
+    for (let i = 0; i < blocksInThisRow; i++) {
+      const block = document.createElement('div');
+      const blockWidth = 100 / blocksPerRow;
+      block.style.width = blockWidth + '%';
+      block.style.height = '100%';
+      
+      // Alternate between the two colors
+      const colorIndex = (i + row) % 2;
+      block.style.backgroundColor = selectedColors[colorIndex];
+      
+      rowDiv.appendChild(block);
+    }
+    
+    blocksContainer.appendChild(rowDiv);
+  }
+}
+
+// Initialize color blocks
+window.addEventListener('load', function() {
+  generateColorBlocks('header-colors', 12, 10);
+  generateColorBlocks('footer-colors', 24, 8);
+});
+*/
+
+/* HTML Structure for color blocks */
+/*
+<div id="header-colors" class="color-blocks"></div>
+<div id="footer-colors" class="color-blocks"></div>
+*/
+
+/* ==============================
+ * 8. ANIMATIONS & TRANSITIONS
+ * ============================== */
+
+:root {
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+.transition {
+  transition: all var(--transition-normal);
+}
+
+/* Hover effects */
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* ==============================
+ * 8. IMPLEMENTATION NOTES
+ * ============================== */
+
+/*
+ * HOW TO USE THIS STYLEGUIDE:
+ * 
+ * 1. Include this CSS in your project
+ * 2. Use the provided CSS variables for consistent styling
+ * 3. Follow the typography guidelines for all text elements
+ * 4. Use the component classes for common UI elements
+ * 5. Customize accent colors as needed for specific projects
+ * 
+ * Remember:
+ * - All titles should be in uppercase
+ * - Maintain consistent spacing using the spacing variables
+ * - Use the responsive breakpoints for mobile-friendly design
+ */
+
+.page-subtitle {
+  font-family: 'UniversLight', sans-serif;
+  font-size: 32px;
+}
+
+.page-content {
+  font-family: 'UniversReg', sans-serif;
+   font-size: 20px;
+  width:600px;
+}
+
+Kleuren:
+
+Witte achtergrond, zwarte teksten.
+Keuze uit deze steunkleuren.
+
+let hexColors = [
+  '#61B199',
+  '#C0CE68',
+  '#F0E933',
+  '#FBBF2E',
+  '#F89A3C',
+  '#F3722E',
+  '#EF4424',
+  '#ED1C26',
+  '#E92B59',
+  '#E23D96',
+  '#BF428A',
+  '#9F4A81',
+  '#69619B',
+  '#367BB7',
+  '#0091D1'
+];
+

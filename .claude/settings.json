@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import sys; lines=sys.stdin.readlines\\(\\); print\\(f''{len\\(lines\\)} style.css bestanden''\\)\")",
+      "Bash(python3 -c \":*)",
+      "Bash(python3:*)"
+    ]
+  }
+}
